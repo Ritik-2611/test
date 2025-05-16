@@ -20,6 +20,7 @@ git commit -a -m "msg" // without staging
 // to see history of commits
 git log
 
+
 // use before commit 
 git diff                 // to see difference between working dict
 git diff --staged         // to see differencewhen staged
