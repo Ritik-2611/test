@@ -1,0 +1,33 @@
+// to initialise new repo
+git init  (master branch)
+
+// to initalise into your / main branch
+git init -b "branch name"
+
+// to add single file
+git add filename
+
+// to add all new files
+git add .
+
+// to check the files in wrking repo and git repo
+git status
+ 
+// should be made after every change
+git commit -m"msg"
+git commit -a -m "msg" // without staging 
+
+// to see history of commits
+git log
+
+// use before commit 
+git diff                 // to see difference between working dict
+git diff --staged         // to see differencewhen staged
+
+// to remove from staged area 
+git rm --cached filename
+
+// to set id
+git config --global user.name "info"
+// to check 
+git config --global --list
