@@ -32,3 +32,31 @@ git rm --cached filename
 git config --global user.name "info"
 // to check 
 git config --global --list
+
+// to create ssh keys
+git ssh-keygen -o
+
+//to add link (origin) once 
+git remote add origin "link"
+
+//to default set push 
+git push -u origin main 
+// automatically do changes to th edefault link
+git push 
+gtit pull
+
+// for once 
+git push origin main
+
+// tag is used to give info abt new versions
+
+// for annotation /detailed explanation
+git tag -a " name " -m"message"
+//for lightweight explanation
+git tag "name" -m "message"
+
+// to add tag 
+git push origin 'tag name'
+
+//to see tags 
+git tag
