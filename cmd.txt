@@ -60,3 +60,26 @@ git push origin 'tag name'
 
 //to see tags 
 git tag
+
+//to show tag data 
+git show 'tag name'
+ 
+// to get log with all commit messages
+git log --pretty=oneline
+
+// to see remote url
+git remote -v
+
+// to clone 
+git clone "http url"
+
+Branching
+
+// to create a branch 
+git checkout/switch -b/-c name
+
+// to ssitch branch 
+git checkout/switch name
+
+// to delete branch 
+git branch -d name
