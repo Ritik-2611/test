@@ -91,4 +91,4 @@ git branch -d name
 // help to get the updated code from branch..
 git pull origin main
 
-//
+//if editor opens  write comment and run    esc --> :q! --> enter
