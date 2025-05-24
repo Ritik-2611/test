@@ -92,3 +92,14 @@ git branch -d name
 git pull origin main
 
 //if editor opens  write comment and run    esc --> :q! --> enter
+
+// make commit in terminal if firstly adding new branch , else make commiit of files once again
+
+//ab usse push kro github present
+git push origin main 
+
+
+lakin isme har branch dekhagi 
+
+// to avoid viewing the branch  , use rebaseqq
+git rebase branch
