@@ -83,3 +83,12 @@ git checkout/switch name
 
 // to delete branch 
 git branch -d name
+
+// steps to  merging
+
+/// go to main branch first if present in other branch 
+
+// help to get the updated code from branch..
+git pull origin main
+
+//
