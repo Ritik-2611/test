@@ -1,1 +1,1 @@
-this is my fiest try to do 
+Git summarizer
