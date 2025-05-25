@@ -103,3 +103,38 @@ lakin isme har branch dekhagi
 
 // to avoid viewing the branch  , use rebaseqq
 git rebase branch
+
+// to catch the local repo with remote if tip dono ka same nahi hai , use 
+git push origin main --force
+
+// Agar github ke server pr change kiya aur local repo mai push krna hai , use 
+git pull origin main
+
+
+// to time travel and made changes
+//steps :-
+ // go to the commit 
+ git checkout commit Id 
+
+ // you can here make a new branch and latter push it ...
+
+ // Stash is used to store temprory changes, which we don,t want to commit yet , but want ot change the branch ....
+ 
+ // to save the experiment 
+ git stash
+ // to get all the list
+ git stash list
+ // to bring back the change 
+ //to move to last stash
+git stash apply 
+or
+// to move to a particvular
+git stash apply "stash@{n}"
+
+//Forking  :- agar koi repo hai jisko hum directly change nahi kr sakte hai
+ , toh hum usse fork krte hai apni github pr, jani ki puura code apne git hub pr import krte hai ,
+  aur phir changes krke apne github pr push kr sakte hai aur actual repo mai pull request daal sakyte hai
+  Jeh on the github pr hi hogi...
+
+  //Pull request :-  it is also made on github , it is done when you make cganhes in the fork o\project and now u want it to add in the actual 
+  project , therefore asking the actual developer to review the change and add it to the actual code of the actual project
