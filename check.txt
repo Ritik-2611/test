@@ -1,0 +1,179 @@
+pwd    (to check the current folder)
+cd     (to change folder)
+ls     (to list folder content)
+mkdir  (to make new folder)
+touch  (to make new file)
+cat    (to see content of file)
+vi     (to open editor )
+ls -a  (to see hidden files)
+ls -l  ( to see all details of content of a folder)
+ls -R  (to recurviselt visit all the folders and their folders )
+ls -t  (to sort acc to newly updated)
+ls -r  (to sort as oldest updated)
+ls -lRt 
+cat > filename (to add new content and delete the old one)
+cat >> filename (To append in yhe file)
+ &&     (to carry out multiple task in sequence)
+
+mkdir -p    ( Multi-level folder structure banana ek shot me)
+ls -p
+(Ye command normal files aur folders ko alag dikhane ke liye use hoti hai.
+ Directories ke naam ke end me / lagata hai
+ files ke end mai kuch ni lagta hai
+
+mv old_file_name new_filr_name   ( to rename files)
+mv filename folder                (to move file from one folder to another)
+
+cp file folder (to copy file into folder)
+cp -r folder folder (to copy folder into another)
+
+
+-r: recursive — folders ke andar ke content bhi copy karo
+ rm filemane  (to remove file)
+rm -r folder   (to remove folder)
+
+chmod to add or to remove premissions
+structure ---->    chmod ugo(+/-)premission filename (in case of folder add-R befor ugo)
+here ugo stands for user , group,organisation and + means to add and - means to remove premission 
+a command be like -----> chmod u+x file.txt
+
+ChatGPT said:
+Bilkul Ritik! chmod with numbers ka concept super important hai file permissions samajhne ke liye in Linux. Chalo step-by-step samjhte hain:
+
+🔐 What is chmod?
+chmod = Change Mode
+Iska use hota hai file/folder ke permissions ko change karne ke liye.
+
+📊 Permission Basics:
+Har file ya folder ke 3 user groups hote hain:
+
+Owner (u) → jisne file banayi
+
+Group (g) → jiske sath file share ki gayi ho
+
+Others (o) → baaki sab log
+
+Aur 3 types of permissions hote hain:
+
+Symbol	Meaning	Value
+r	read	4
+w	write	2
+x	execute	1
+
+chmod 754 myfile
+
+| User Type | Value | Permission      |
+| --------- | ----- | --------------- |
+| Owner     | `7`   | 4 + 2 + 1 = rwx |
+| Group     | `5`   | 4 + 0 + 1 = r-x |
+| Others    | `4`   | 4 + 0 + 0 = r-- |
+
+
+echo (to display data on terminal screen)
+eg : echo 'hello'
+
+
+
+head and tail (to see upper and lower area 10 lines by default)
+to see a particular area use head and tail como using pipe operator( | )
+
+i.e.
+
+| Command                              | Valid?       | Output Description           | Explanation                                     |
+| ------------------------------------ | ------------ | ---------------------------- | ----------------------------------------------- |
+| `head -n 10 file.txt`                | ✅            | First 10 lines               | `head` by default shows top `n` lines           |
+| `tail -n 10 file.txt`                | ✅            | Last 10 lines                | `tail` shows bottom `n` lines                   |
+| `tail -n +40 file.txt`               | ✅            | Line 40 to end               | Starts printing from line 40 onwards            |
+| `head -n -40 file.txt`               | ✅ (GNU only) | All lines **except last 40** | Excludes last 40 lines                          |
+| `tail -n -40 file.txt`               | ❌            | ❌ Error: Invalid             | `tail` doesn’t allow negative values like `-40` |
+| `head -n +40 file.txt`               | ❌            | ❌ Error: Invalid             | `head` doesn’t accept `+` syntax                |
+| `tail -n +40 file.txt \| head -n 10` | ✅            | Line 40 to 49                | Starts from line 40, gets next 10 lines         |
+| `head -n -40 file.txt \| tail -n 10` | ✅            | 10 lines just before last 40 | Useful for extracting near-end sections         |
+| `head -n 40 file.txt \| tail -n 10`  | ✅            | Lines 31 to 40               | First 40 lines → then last 10 of those          |
+| `tail file.txt`                      | ✅            | Last 10 lines (default)      | Default behavior if `-n` not given              |
+| `head file.txt`                      | ✅            | First 10 lines (default)     | Same for `head`                                 |
+
+wc cmd to get count of char , lines ,word count
+
+| Option | Meaning                                           | Example          | Output                 |
+| ------ | ------------------------------------------------- | ---------------- | ---------------------- |
+| `wc`   | Sab kuch count karega (lines, words, characters)  | `wc file.txt`    | `10  50  300 file.txt` |
+| `-l`   | Line count (kitni lines hain)                     | `wc -l file.txt` | `10 file.txt`          |
+| `-w`   | Word count (words separated by space/tab/newline) | `wc -w file.txt` | `50 file.txt`          |
+| `-c`   | Byte count (total file size in bytes)             | `wc -c file.txt` | `300 file.txt`         |
+| `-m`   | Character count (multibyte character safe)        | `wc -m file.txt` | `300 file.txt`         |
+| `-L`   | Longest line length (in characters)               | `wc -L file.txt` | `43 file.txt`          |
+
+grep command  (to serach some specifications )
+
+--->
+| **Command**                    | **Meaning**                                         | **Example**                            | **Description / Output**                                        |                                             |                                      |
+| ------------------------------ | --------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------- | ------------------------------------------- | ------------------------------------ |
+| `grep "text" file.txt`         | Simple search                                       | `grep "apple" fruits.txt`              | Finds and prints lines containing `"apple"`                     |                                             |                                      |
+| `grep -i "text" file.txt`      | Case-insensitive search                             | `grep -i "apple" fruits.txt`           | Matches `"apple"`, `"Apple"`, `"APPLE"`, etc.                   |                                             |                                      |
+| `grep -v "text" file.txt`      | Invert match (lines **not** containing the pattern) | `grep -v "apple" fruits.txt`           | Shows all lines **except** the ones containing `"apple"`        |                                             |                                      |
+| `grep -r "text" dir/`          | Recursive search through directory                  | `grep -r "TODO" ./project/`            | Searches all files inside `project/` folder                     |                                             |                                      |
+| `grep -n "text" file.txt`      | Show line numbers                                   | `grep -n "apple" fruits.txt`           | Output: `3:apple` means "apple" was found on line 3             |                                             |                                      |
+| `grep -c "text" file.txt`      | Count the number of matching lines                  | `grep -c "apple" fruits.txt`           | Just gives the count (e.g., `5`)                                |                                             |                                      |
+| `grep -l "text" *.txt`         | Show only file names where match occurs             | `grep -l "main" *.java`                | Useful when you want to know *which* files contain the match    |                                             |                                      |
+| `grep -w "word" file.txt`      | Match **whole word only**                           | `grep -w "the" file.txt`               | Avoids matching `"there"` or `"other"` (only matches `"the"`)   |                                             |                                      |
+| `grep -x "line" file.txt`      | Match **entire line exactly**                       | `grep -x "Hello world" file.txt`       | Line must be **exactly** `"Hello world"`                        |                                             |                                      |
+| `grep -E "regex"`              | Use **extended regex** (same as `egrep`)            | \`grep -E "cat                         | dog" file.txt\`                                                 | Matches lines containing "cat" **or** "dog" |                                      |
+| `grep -f pattern.txt file.txt` | Read search patterns from a file                    | `grep -f keywords.txt file.txt`        | Each line in `keywords.txt` is used as a pattern                |                                             |                                      |
+| `grep -o "pattern" file.txt`   | Print only the **matching part**, not the full line | `grep -o "a.." file.txt`               | Output only shows matches, e.g., `ant`, `and`, `all` if matched |                                             |                                      |
+| `grep "pattern" file1 file2`   | Search multiple files                               | `grep "apple" file1.txt file2.txt`     | Shows match from both files                                     |                                             |                                      |
+| \`command                      | grep "pattern"\`                                    | Filter output of other commands (pipe) | \`ps aux                                                        | grep "chrome"\`                             | Find processes related to `"chrome"` |
+| `grep -A N "txt" file.txt`     | Show match + **N lines After**                      | `grep -A 2 "error" log.txt`            | Shows matching line + 2 lines after it                          |                                             |                                      |
+| `grep -B N "txt" file.txt`     | Show match + **N lines Before**                     | `grep -B 2 "error" log.txt`            | Shows matching line + 2 lines before it                         |                                             |                                      |
+| `grep -C N "txt" file.txt`     | Show match + **N lines Before & After** (Context)   | `grep -C 1 "error" log.txt`            | Gives 1 line above & below match                                |                                             |                                      |
+
+
+
+sed cmd ( stream editor  --> used to perform text transformation )
+
+| Command / Syntax              | Purpose / Description                                         | Example                         | Output / Effect                                               |
+| ----------------------------- | ------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------- |
+| `sed 's/old/new/' file`       | Replace **first** occurrence of "old" with "new" in each line | `sed 's/cat/dog/' pets.txt`     | Replaces only the first `cat` in every line with `dog`        |
+| `sed 's/old/new/g' file`      | Replace **all** occurrences of "old" with "new"               | `sed 's/cat/dog/g' pets.txt`    | Replaces **every** `cat` with `dog` on each line              |
+| `sed -n 'p' file`             | Print every line (default, same as just `cat`)                | `sed -n 'p' file.txt`           | Prints all lines (but with `-n` suppressing default printing) |
+| `sed -n '3p' file`            | Print **only** line 3                                         | `sed -n '3p' file.txt`          | Only line 3 will be printed                                   |
+| `sed -n '2,5p' file`          | Print lines from 2 to 5                                       | `sed -n '2,5p' file.txt`        | Only lines 2, 3, 4, and 5 shown                               |
+| `sed '3d' file`               | **Delete** line 3                                             | `sed '3d' file.txt`             | File shown with line 3 removed                                |
+| `sed '2,4d' file`             | **Delete** lines from 2 to 4                                  | `sed '2,4d' file.txt`           | Deletes lines 2, 3, and 4                                     |
+| `sed '/pattern/d' file`       | Delete lines that match the pattern                           | `sed '/cat/d' pets.txt`         | Deletes all lines that contain the word `cat`                 |
+| `sed -i 's/old/new/g' file`   | In-place replace in file (Linux/macOS)                        | `sed -i 's/cat/dog/g' pets.txt` | Directly modifies `pets.txt` with `cat` replaced by `dog`     |
+| `echo "text" \| sed 's/x/y/'` | Pipe input through sed for inline replace                     | `echo "1+1=2" \| sed 's/1/2/'`  | Output: `2+1=2`                                               |
+
+| Command                      | Purpose                             | Explanation                                                   | Example                                         | Output |
+| ---------------------------- | ----------------------------------- | ------------------------------------------------------------- | ----------------------------------------------- | ------ |
+| `sed 's/cat/dog/g' pets.txt` | Replace all `"cat"` with `"dog"`    | `s`: substitute, `g`: global (all occurrences in line)        | `"I love cat and cat"` → `"I love dog and dog"` |        |
+| `sed '/cat/p' pets.txt`      | Print lines **that match** `"cat"`  | But prints each match **twice** (because default print + `p`) | `"My cat is fluffy"` → Printed twice            |        |
+| `sed -n '/cat/p' pets.txt`   | Print **only matching lines**, once | `-n` suppresses normal output, `p` prints match               | `"I have a cat"` & `"My cat is fluffy"` only    |        |
+
+
+
+ What is awk?
+awk is a powerful text-processing tool used for:
+
+Pattern scanning
+
+Text filtering
+
+Field extraction (columns)
+
+Basic calculations
+
+| Command / Concept                                | Description                                          | Example                                  | Output Example                          |
+| ------------------------------------------------ | ---------------------------------------------------- | ---------------------------------------- | --------------------------------------- |
+| `awk '{print $1}' file.txt`                      | Prints the **1st column** (word) from each line      | Input: `Ritik 90`<br>`Anjali 85`         | `Ritik`<br>`Anjali`                     |
+| `awk '{print $2, $1}' file.txt`                  | Prints **2nd column**, then **1st column**           | Input: `Ritik 90`<br>`Anjali 85`         | `90 Ritik`<br>`85 Anjali`               |
+| `awk -F ',' '{print $2}' file.csv`               | Uses **comma as field separator**, prints 2nd column | Input: `101,Ritik,90`<br>`102,Anjali,85` | `Ritik`<br>`Anjali`                     |
+| `awk -F ',' '{print $2, "scored", $3}' file.csv` | Prints 2nd column with text and 3rd column           | Input: `101,Ritik,90`<br>`102,Anjali,85` | `Ritik scored 90`<br>`Anjali scored 85` |
+| `awk 'BEGIN { print "Start" }'`                  | Executes **before** reading file (setup block)       | —                                        | `Start`                                 |
+| `awk 'END { print "Done" }'`                     | Executes **after** reading file (cleanup block)      | —                                        | `Done`                                  |
+| `awk '{print NR, $0}' file.txt`                  | Prints line number (`NR`) with the whole line        | Input: `Ritik 90`<br>`Anjali 85`         | `1 Ritik 90`<br>`2 Anjali 85`           |
+| `awk '{print NF}' file.txt`                      | Prints **number of fields** in each line (`NF`)      | Input: `Ritik 90`<br>`Anjali 85 20`      | `2`<br>`3`                              |
+| `awk '$3 > 80 { print $1, $2 }' file.csv`        | Prints lines where 3rd column is greater than 80     | Input: `101,Ritik,90`<br>`102,Rohan,75`  | `101 Ritik`                             |
+
+awk -F ',' 'BEGIN { OFS = "\t" } { print $1, $2, $3 }' marks.csv
+
